@@ -1,8 +1,8 @@
 {
-  "name": "request-frontend",
+  "name": "stream-file-request-javascript",
   "version": "1.0.0",
   "description": "",
-  "main": "convertAndSendRequest.js",
+  "main": "streamFileRequest.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
