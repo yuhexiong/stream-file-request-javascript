@@ -11,15 +11,17 @@ Demonstrates how to upload files and stream them to a server using Node.js. Help
 ### install dependencies
 
 ```bash
-
 npm install
-
 ```
 
-### run
+### send request with token
 
 ```bash
+node streamFileRequest.js <filePath> <formUrl> <token>
+```
 
-node streamFileRequest.js <filePath> <targetUrl> <token>
+### get token and send request 
 
+```bash
+node getTokenAndStreamFileRequest.js <tokenUrl> <username> <password> <filePath> <formUrl> 
 ```

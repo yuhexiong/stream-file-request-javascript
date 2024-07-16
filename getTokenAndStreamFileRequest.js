@@ -2,7 +2,20 @@ const fs = require('fs');
 const axios = require('axios');
 const FormData = require('form-data');
 
-function streamFileRequest(filePath, formUrl, token) {
+async function streamFileRequest(tokenUrl, username, password, filePath, formUrl) {
+    try {
+        const response = await axios.post(tokenUrl, {
+            username: username,
+            password: password
+        });
+
+        token = response.data.token
+        console.log('[Getting Token] Success: ', token);
+    } catch (error) {
+        console.error('[Getting Token] Error: ', error);
+        throw error;
+    }
+
     try {
         const formData = new FormData();
         formData.append('file', fs.createReadStream(filePath));
@@ -25,8 +38,11 @@ function streamFileRequest(filePath, formUrl, token) {
     }
 }
 
-const filePath = process.argv[2];
-const formUrl = process.argv[3];
-const token = process.argv[4];
+const tokenUrl = process.argv[2];
+const username = process.argv[3];
+const password = process.argv[4];
 
-streamFileRequest(filePath, formUrl, token);
+const filePath = process.argv[5];
+const formUrl = process.argv[6];
+
+streamFileRequest(tokenUrl, username, password, filePath, formUrl);
