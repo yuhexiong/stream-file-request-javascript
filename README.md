@@ -1,5 +1,8 @@
 # Stream File Request
 
+**(also provided Traditional Chinese version document [README-CH.md](README-CH.md).)**
+
+
 Demonstrates how to upload files and stream them to a server using Node.js. Help you test stream file api.  
 
 ## Version
